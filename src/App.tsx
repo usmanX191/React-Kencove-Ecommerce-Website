@@ -1,25 +1,34 @@
 import React from 'react';
-import logo from './logo.svg';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Home from '../src/Pages/Home';
+import Products from '../src/Pages/Products';
+import MyAccount from '../src/Pages/MyAccount';
+import Articles from '../src/Pages/Articles';
+import Contact from '../src/Pages/Contact';
+import Blog from '../src/Pages/Blog';
+import Events from '../src/Pages/Events';
+import Jobs from '../src/Pages/Jobs';
+
+import Navbar from './component/navbar'; // Make sure the path is correct
 import './App.css';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <Router>
+    <div className='bg-gray-100 h-full'>
+      <Navbar />
+        <Routes>
+          <Route path="/" Component={Home} />
+          <Route path="/products" element={<Products />} />
+          <Route path="/myaccount" element={<MyAccount />} />
+          <Route path="/articles" Component={Articles} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/blog" element={<Blog />} />
+          <Route path="/events" element={<Events />} />
+          <Route path="/jobs" element={<Jobs />} />
+        </Routes>
     </div>
+    </Router>
   );
 }
 
