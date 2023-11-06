@@ -4,7 +4,25 @@ module.exports = {
     "./src/**/*.{js,jsx,ts,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      // fontSize: {
+      //   sm: '0.8rem',
+      //   base: '1rem',
+      //   xl: '1.25rem',
+      //   '2xl': '1.563rem',
+      //   '3xl': '1.953rem',
+      //   '4xl': '2.441rem',
+      //   '5xl': '3.052rem',
+      // },
+      screens: {
+        'xs': '375px', // Define your custom 375px breakpoint
+        'sm': '640px',
+        'md': '860px',
+        'lg': '1024px',
+        'xl': '1280px',
+        '2xl': '1330px',
+      },
+    },
   },
   plugins: [],
 }

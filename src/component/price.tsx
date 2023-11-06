@@ -13,7 +13,6 @@ const Price: React.FC = () => {
         // Set the height of the div using the style property
         divElement.style.height = '45px'; // You can set the height to any value you need
       }
-      
     }
     else{
       setIsClicked(true);
@@ -61,11 +60,11 @@ const Price: React.FC = () => {
   return (
     <div id = 'PriceDiv' className='mt-5 bg-white rounded-lg'>
       {isClicked ? <>
-      <p className='cursor-pointer relative'onClick={showPopup}>
-      <button type='button' className="px-4 mr-20 py-2 font-bold text-xl text-blue-800 cursor-pointer hover:underline hover:text-blue-900">Price</button>
-      <FontAwesomeIcon className='ml-20'  icon={faChevronUp} style={{color: "gray",}} />
+      <p className='cursor-pointer xs:text-xs 2xl:text-base relative'onClick={showPopup}>
+      <button type='button' className="xs:px-1 xs:py-1 xs:mr-14 2xl:px-4 2xl:mr-20 2xl:py-2 font-bold 2xl:text-xl text-blue-800 cursor-pointer hover:underline hover:text-blue-900">Price</button>
+      <FontAwesomeIcon className='2xl:ml-20 xs:ml-3'  icon={faChevronUp} style={{color: "gray",}} />
       </p>
-      <div className='px-4 py-2'>
+      <div className='2xl:px-4 2xl:py-2 xs:px-1 xs:py-1 xs:mt-2'>
       <div className="m-0">
         
       <label className="inline-flex items-center cursor-pointer">
@@ -75,13 +74,12 @@ const Price: React.FC = () => {
           checked={isChecked}
           onChange={toggleCheckbox}
         />
-        <span className="ml-2 text-gray-700">Less than 10$</span>
+        <span className="ml-2  xs:text-xs 2xl:text-base text-gray-700">Less than 10$</span>
       </label>
     </div>
       </div>
-      <div className='px-4 py-2'>
+      <div className='2xl:px-4 2xl:py-2 xs:px-1 xs:py-1'>
       <div className="m-0">
-        
       <label className="inline-flex items-center cursor-pointer">
         <input
           type="checkbox"
@@ -89,11 +87,11 @@ const Price: React.FC = () => {
           checked={isChecked2}
           onChange={toggleCheckbox2}
         />
-        <span className="ml-2 text-gray-700">10$ to 20$</span>
+        <span className="ml-2 xs:text-xs 2xl:text-base text-gray-700">10$ to 20$</span>
       </label>
     </div>
       </div>
-      <div className='px-4 py-2'>
+      <div className='2xl:px-4 2xl:py-2 xs:px-1 xs:py-1'>
       <div className="m-0">
         
       <label className="inline-flex items-center cursor-pointer">
@@ -103,11 +101,11 @@ const Price: React.FC = () => {
           checked={isChecked3}
           onChange={toggleCheckbox3}
         />
-        <span className="ml-2 text-gray-700">20$ to 30$</span>
+        <span className="ml-2  xs:text-xs 2xl:text-base text-gray-700">20$ to 30$</span>
       </label>
     </div>
       </div>
-      <div className='px-4 py-2'>
+      <div className='2xl:px-4 2xl:py-2 xs:px-1 xs:py-1'>
       <div className="m-0">
         
       <label className="inline-flex items-center cursor-pointer">
@@ -117,11 +115,11 @@ const Price: React.FC = () => {
           checked={isChecked4}
           onChange={toggleCheckbox4}
         />
-        <span className="ml-2 text-gray-700">30$ to 50$</span>
+        <span className="ml-2  xs:text-xs 2xl:text-base text-gray-700">30$ to 50$</span>
       </label>
     </div>
       </div>
-      <div className='px-4 py-2'>
+      <div className='2xl:px-4 2xl:py-2 xs:px-1 xs:py-1'>
       <div className="m-0">
         
       <label className="inline-flex items-center cursor-pointer">
@@ -131,11 +129,11 @@ const Price: React.FC = () => {
           checked={isChecked5}
           onChange={toggleCheckbox5}
         />
-        <span className="ml-2 text-gray-700">50$ to 100$</span>
+        <span className="ml-2  xs:text-xs 2xl:text-base text-gray-700">50$ to 100$</span>
       </label>
     </div>
       </div>
-      <div className='px-4 py-2'>
+      <div className='2xl:px-4 2xl:py-2 xs:px-1 xs:py-1'>
       <div className="m-0">
         
       <label className="inline-flex items-center cursor-pointer">
@@ -145,14 +143,14 @@ const Price: React.FC = () => {
           checked={isChecked6}
           onChange={toggleCheckbox6}
         />
-        <span className="ml-2 text-gray-700">100$ & Above</span>
+        <span className="ml-2  xs:text-xs 2xl:text-base text-gray-700">100$ & Above</span>
       </label>
     </div>
       </div>
       </> : 
-      <p className='cursor-pointer relative'onClick={showPopup}>
-      <button type='button' className="px-4 mr-20 py-2  font-bold text-xl text-blue-800 cursor-pointer hover:underline hover:text-blue-900">Price</button>
-      <FontAwesomeIcon className='px-2 ml-16' icon={faChevronDown} style={{color: "gray",}} />
+      <p className='cursor-pointer xs:text-xs 2xl:text-base relative'onClick={showPopup}>
+      <button type='button' className="xs:px-1 xs:py-1 xs:mr-14 2xl:px-4 2xl:mr-20 2xl:py-2 font-bold 2xl:text-xl text-blue-800 cursor-pointer hover:underline hover:text-blue-900">Price</button>
+      <FontAwesomeIcon className='2xl:px-2 2xl:ml-16 xs:ml-3' icon={faChevronDown} style={{color: "gray",}} />
       </p> }
     </div>
   );

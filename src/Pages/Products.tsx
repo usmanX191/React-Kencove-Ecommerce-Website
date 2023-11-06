@@ -20,7 +20,7 @@ function FirstColumn() {
 // Create a component for the second column with two different rows
 function SecondColumn() {
   return (
-    <div className="column w-full">
+    <div className="column 2xl:w-full xs:w-2/3">
       <Filters data = ''/>
       <ItemsList/>
     </div>
@@ -30,13 +30,13 @@ function SecondColumn() {
 
 const Products: React.FC = () => {
   return (
-    <div className='h-full bg-gray-100'>
+    <div className='h-full 2xl:bg-gray-100 xs:bg-red-800 '>
       <Hero />
-      <div className='flex ml-4'>
+      <div className='flex 2xl:ml-4 xs:ml-2'>
         <FirstColumn/>
         <SecondColumn/>
       </div>
-      
+        
 
       {/* <div className='flex ml-4'>
         <Categories />

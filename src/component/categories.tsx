@@ -11,9 +11,8 @@ const Categories: React.FC = () => {
       const divElement = document.getElementById('categoriesDiv');
       if (divElement) {
         // Set the height of the div using the style property
-        divElement.style.height = '45px'; // You can set the height to any value you need
+        divElement.style.height = '45px'; // You can set the height to any value you need  
       }
-      
     }
     else{
       setIsClicked(true);
@@ -52,13 +51,14 @@ const Categories: React.FC = () => {
 
 
   return (
-    <div id = 'categoriesDiv' className=' bg-white rounded-lg'>
+    
+    <div id = 'categoriesDiv' className=' bg-white rounded-lg'>  
       {isClicked ? <>
-      <p className='cursor-pointer relative'onClick={showPopup}>
-      <button type='button' className="px-4 mr-20 py-2 font-bold text-xl text-blue-800 cursor-pointer hover:underline hover:text-blue-900">Categories</button>
-      <FontAwesomeIcon className='ml-20'  icon={faChevronUp} style={{color: "gray",}} />
+      <p className='cursor-pointer xs:text-xs 2xl:text-base relative'onClick={showPopup}>
+      <button type='button' className="xs:px-1 2xl:px-4 2xl:mr-20 xs:mr-8 2xl:py-2 xs:py-2 font-bold 2xl:text-xl xs:text-xs text-blue-800 cursor-pointer hover:underline hover:text-blue-900">Categories</button>
+      <FontAwesomeIcon className='2xl:ml-20'  icon={faChevronUp} style={{color: "gray"}} />
       </p>
-      <div className='px-4 py-2'>
+      <div className='2xl:px-4 2xl:py-2 xs:px-1'>
       <div className="m-0">
         
       <label className="inline-flex items-center cursor-pointer">
@@ -68,11 +68,11 @@ const Categories: React.FC = () => {
           checked={isChecked}
           onChange={toggleCheckbox}
         />
-        <span className="ml-2 text-gray-700">Ear Tags (5)</span>
+        <span className="ml-2 text-gray-700 xs:text-xs  2xl:text-base">Ear Tags (5)</span>
       </label>
     </div>
       </div>
-      <div className='px-4 py-2'>
+      <div className='2xl:px-4 2xl:py-2 xs:px-1'>
       <div className="m-0">
       <label className="inline-flex items-center cursor-pointer">
         <input
@@ -81,14 +81,14 @@ const Categories: React.FC = () => {
           checked={is2Checked}
           onChange={toggle2Checkbox}
         />
-        <span className="ml-2 text-gray-700 ">Ear Tagger (2)</span>
+        <span className="ml-2 text-gray-700  xs:text-xs  2xl:text-base">Ear Tagger (2)</span>
       </label>
     </div>
       </div>
       </> : 
-      <p className='cursor-pointer relative'onClick={showPopup}>
-      <button type='button' className="px-4 mr-20 py-2  font-bold text-xl text-blue-800 cursor-pointer hover:underline hover:text-blue-900">Categories</button>
-      <FontAwesomeIcon className='px-2 ml-16' icon={faChevronDown} style={{color: "gray",}} />
+      <p className='cursor-pointer xs:text-xs 2xl:text-base relative'onClick={showPopup}>
+      <button type='button' className="xs:px-1 2xl:px-4 2xl:mr-20 xs:mr-8 2xl:py-2 xs:py-2 font-bold 2xl:text-xl xs:text-xs text-blue-800 cursor-pointer hover:underline hover:text-blue-900">Categories</button>
+      <FontAwesomeIcon className='2xl:px-2 2xl:ml-16' icon={faChevronDown} style={{color: "gray"}} />
       </p> }
     </div>
   );
