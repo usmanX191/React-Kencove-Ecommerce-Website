@@ -19,7 +19,7 @@ const Items:React.FC = () => {
       name: "Pre-Numbered Calf Tags 1 to 50",
       item_no: "226-250 / yellow",
       price: "$29.25",
-      rating:4,
+      rating:5,
       reviews:3
     },
     {

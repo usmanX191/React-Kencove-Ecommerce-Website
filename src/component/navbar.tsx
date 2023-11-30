@@ -9,7 +9,7 @@ import { FaBars  } from 'react-icons/fa';
 const Navbar: React.FC = () => {
 
   const windowWidth = window.innerWidth;
-console.log(`Window width: ${windowWidth}px`);
+  console.log(`Window width: ${windowWidth}px`);
 
   const navigate = useNavigate();
   const [isMenuOpen, setMenuOpen] = useState(false);

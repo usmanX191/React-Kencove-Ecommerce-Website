@@ -68,7 +68,7 @@ const Categories: React.FC = () => {
           checked={isChecked}
           onChange={toggleCheckbox}
         />
-        <span className="ml-2 text-gray-700 xs:text-xs  2xl:text-base">Ear Tags (5)</span>
+        <span className="ml-2 text-gray-700 xs:text-xs  2xl:text-base">Ear Tags (1)</span>
       </label>
     </div>
       </div>
@@ -81,7 +81,7 @@ const Categories: React.FC = () => {
           checked={is2Checked}
           onChange={toggle2Checkbox}
         />
-        <span className="ml-2 text-gray-700  xs:text-xs  2xl:text-base">Ear Tagger (2)</span>
+        <span className="ml-2 text-gray-700  xs:text-xs  2xl:text-base">Air Buds (2)</span>
       </label>
     </div>
       </div>
