@@ -8,7 +8,7 @@ import Avalaiblity from '../component/availability';
 import ItemsList from '../component/items';
 function FirstColumn() {
   return (
-    <div className="column  w-1/3">
+    <div className="column" style={{width:'24%'}}>
       <Categories />
       <Rating />
       <Price/>
@@ -20,8 +20,8 @@ function FirstColumn() {
 // Create a component for the second column with two different rows
 function SecondColumn() {
   return (
-    <div className="column 2xl:w-full xs:w-2/3">
-      <Filters data = ''/>
+    <div className="column 2xl:w-full xs:w-2/3" style={{width:'74%'}}>
+      <Filters/>
       <ItemsList/>
     </div>
   );
@@ -32,7 +32,7 @@ const Products: React.FC = () => {
   return (
     <div className='h-full 2xl:bg-gray-100 xs:bg-red-800 '>
       <Hero />
-      <div className='flex 2xl:ml-4 xs:ml-2'>
+      <div className='flex 2xl:ml-4 xs:ml-2' style={{paddingRight:'2%'}}>
         <FirstColumn/>
         <SecondColumn/>
       </div>

@@ -1,9 +1,14 @@
 import React from 'react'
-import { useState } from 'react';
+import { useState,useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronDown, faChevronUp} from '@fortawesome/free-solid-svg-icons';
-import Filters from './filters';
+import { useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
+import {RootState} from '../redux/store'
+import { AddAvailability, RemoveAvailability,updateFilters } from '../redux/Slices/filterSlice';
+
 const Avalaiblity: React.FC = () => {
+  const dispatch = useDispatch();
   const [isClicked, setIsClicked] = useState<boolean>(true);
   const showPopup = () => {
     if(isClicked===true){
@@ -32,10 +37,11 @@ const Avalaiblity: React.FC = () => {
     setIsChecked(!isChecked);
     if(isChecked===true)
     {
-      <Filters data = 'Ear Tags'/>
+      dispatch(RemoveAvailability(['Out of Stock']));
     }
     else{
-      <Filters data = ''/>
+      dispatch(AddAvailability(['Out of Stock']));
+      dispatch(updateFilters(true));
     }
   };
 
@@ -43,21 +49,49 @@ const Avalaiblity: React.FC = () => {
     setIs2Checked(!is2Checked);
     if(is2Checked===true)
     {
-      <Filters data = 'Ear Tagger'/>
+      dispatch(RemoveAvailability(['In Stock']));
     }
     else{
-      <Filters data = ''/>
+      dispatch(AddAvailability(['In Stock']));
+      dispatch(updateFilters(true));
     }
   };
 
+  const checkRemoveAvailaibility: boolean = useSelector((state: RootState) => (state.filters.availability.length !== 0));
+  useEffect(() => {
+    if(checkRemoveAvailaibility === false ){
+      setIsChecked(false);
+      setIs2Checked(false);
+    }
+  },[checkRemoveAvailaibility])
+
+  const checkReset: boolean = useSelector((state: RootState) => state.filters.filters);
+    useEffect(() => {
+    if(checkReset === false ){
+      setIsChecked(false);
+      setIs2Checked(false);
+    }
+  },[checkReset])
 
   return (
     <div id = 'AvailabilityDiv' className='mt-5 mb-5 bg-white rounded-lg'>
       {isClicked ? <>
-      <p className='cursor-pointer xs:text-xs 2xl:text-base relative'onClick={showPopup}>
-      <button type='button' className="xs:px-1 2xl:px-4 2xl:mr-20 xs:mr-8 2xl:py-2 xs:py-2 font-bold 2xl:text-xl xs:text-xs text-blue-800 cursor-pointer hover:underline hover:text-blue-900">Availability</button>
-      <FontAwesomeIcon className='2xl:ml-20'  icon={faChevronUp} style={{color: "gray",}} />
-      </p>
+        <p
+      className={`cursor-pointer xs:text-xs 2xl:text-base relative`}
+      onClick={showPopup}
+    >
+      <button
+        type="button"
+        className={`2xl:px-4 2xl:mr-18 2xl:py-2 font-bold 2xl:text-xl xs:py-1 xs:mr-0.5 xs:text-xs text-blue-800 cursor-pointer hover:underline hover:text-blue-900`}
+      >
+        Availability
+      </button>
+      <FontAwesomeIcon
+        className={`2xl:ml-[142px]`}
+        icon={isClicked ? faChevronUp : faChevronDown}
+        style={{ color: 'gray' }}
+      />
+    </p>
       <div className='2xl:px-4 2xl:py-2 xs:px-1 xs:py-1'>
       <div className="m-0">
         
@@ -68,7 +102,7 @@ const Avalaiblity: React.FC = () => {
           checked={isChecked}
           onChange={toggleCheckbox}
         />
-        <span className="ml-2 text-gray-700 xs:text-xs  2xl:text-base">Out of Stock (5)</span>
+        <span className="ml-2 text-gray-700 xs:text-xs  2xl:text-base">Out of Stock (0)</span>
       </label>
     </div>
       </div>
@@ -81,15 +115,27 @@ const Avalaiblity: React.FC = () => {
           checked={is2Checked}
           onChange={toggle2Checkbox}
         />
-        <span className="ml-2 text-gray-700 xs:text-xs  2xl:text-base ">In Stock (2)</span>
+        <span className="ml-2 text-gray-700 xs:text-xs  2xl:text-base ">In Stock (6)</span>
       </label>
     </div>
       </div>
       </> : 
-      <p className='cursor-pointer xs:text-xs 2xl:text-base relative'onClick={showPopup}>
-      <button type='button' className="xs:px-1 2xl:px-4 2xl:mr-20 xs:mr-8 2xl:py-2 xs:py-2 font-bold 2xl:text-xl xs:text-xs text-blue-800 cursor-pointer hover:underline hover:text-blue-900">Availability</button>
-      <FontAwesomeIcon className='2xl:px-2 2xl:ml-16' icon={faChevronDown} style={{color: "gray",}} />
-      </p> }
+      <p
+      className={`cursor-pointer xs:text-xs 2xl:text-base relative`}
+      onClick={showPopup}
+    >
+      <button
+        type="button"
+        className={`2xl:px-4 2xl:mr-18 2xl:py-2 font-bold 2xl:text-xl xs:py-1 xs:mr-0.5 xs:text-xs text-blue-800 cursor-pointer hover:underline hover:text-blue-900`}
+      >
+        Availability
+      </button>
+      <FontAwesomeIcon
+        className={`2xl:ml-[142px]`}
+        icon={isClicked ? faChevronUp : faChevronDown}
+        style={{ color: 'gray' }}
+      />
+    </p> }
     </div>
   );
 };

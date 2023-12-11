@@ -2,8 +2,8 @@ import React from 'react'
 
 function Jobs() {
   return (
-    <div className='text-center py-100'>
-      <p>Jobs Page</p>
+    <div className='text-center h-screen items-center align-middle'>
+      <p className=''>Jobs Page</p>
     </div>
   )
 }

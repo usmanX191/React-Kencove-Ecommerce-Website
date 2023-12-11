@@ -2,8 +2,8 @@ import React from 'react'
 
 function Articles() {
   return (
-    <div className='text-center py-100'>
-      <p>Articles Page</p>
+    <div className='text-center h-screen items-center align-middle'>
+      <p className=''>Articles Page</p>
     </div>
   )
 }

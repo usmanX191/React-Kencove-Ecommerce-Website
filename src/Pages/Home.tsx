@@ -2,8 +2,8 @@ import React from 'react'
 
 function Home() {
   return (
-    <div className='text-center py-100'>
-      <p>Home Page</p>
+    <div className='text-center h-screen items-center align-middle'>
+      <p className=''>Home Page</p>
     </div>
   )
 }

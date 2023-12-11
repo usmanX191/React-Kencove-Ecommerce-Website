@@ -75,7 +75,7 @@ const Navbar: React.FC = () => {
           </button>
         </div>
       </div>
-      <div className="w-full sm:sticky top-0 bg-blue-800 sm:h-40 xs:h-15">
+      <div className="absolute z-10 w-full sm:sticky top-0 bg-blue-800 sm:h-40 xs:h-15">
         <div className="flex">
           <div className='sm:hidden xs:px-4 xs:py-6 cursor-pointer inline-block' onClick={toggleMenu}><FaBars size={30}/></div>
           <div className="text-white xs:text-center sm:px-6 sm:py-4 xs:py-4 xs:mt-1 cursor-pointer inline-block" onClick={() => {
@@ -189,7 +189,7 @@ const Navbar: React.FC = () => {
               navigate('./products')
               }}>
                 PRODUCTS
-              {isProductPopupVisible ? <FontAwesomeIcon className='px-1' icon={faChevronUp} style={{color: "#ffffff",}} /> : <FontAwesomeIcon className='px-1' icon={faChevronDown} style={{color: "#ffffff",}} />}  
+              {/* {isProductPopupVisible ? <FontAwesomeIcon className='px-1' icon={faChevronUp} style={{color: "#ffffff",}} /> : <FontAwesomeIcon className='px-1' icon={faChevronDown} style={{color: "#ffffff",}} />}   */}
             </button>
             {/* {isProductPopupVisible && (
               <div className="absolute top-full left-0 mt-1 bg-gray-300 text-black rounded-lg">

@@ -1,14 +1,14 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import Home from '../src/Pages/Home';
-import Products from '../src/Pages/Products';
-import MyAccount from '../src/Pages/MyAccount';
-import Articles from '../src/Pages/Articles';
-import Contact from '../src/Pages/Contact';
-import Blog from '../src/Pages/Blog';
-import Events from '../src/Pages/Events';
-import Jobs from '../src/Pages/Jobs';
-import ItemDetails from './Pages/itemDetails';
+import Home from './pages/Home';
+import Products from './pages/Products';
+import MyAccount from './pages/MyAccount';
+import Articles from './pages/Articles';
+import Contact from './pages/Contact';
+import Blog from './pages/Blog';
+import Events from './pages/Events';
+import Jobs from './pages/Jobs';
+import ItemDetails from './pages/itemDetails';
 import Navbar from './component/navbar'; // Make sure the path is correct
 import './App.css';
 
@@ -20,14 +20,14 @@ function App() {
       <Navbar />
         <Routes>
           <Route path="/" Component={Home} />
-          <Route path="/products" element={<Products />} />
-          <Route path="/myaccount" element={<MyAccount />} />
+          <Route path="/products" Component={Products} />
+          <Route path="/myaccount" Component={MyAccount} />
           <Route path="/articles" Component={Articles} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/blog" element={<Blog />} />
-          <Route path="/events" element={<Events />} />
-          <Route path="/jobs" element={<Jobs />} />
-          <Route path="/products/ItemDetail/" element={<ItemDetails/>}/>
+          <Route path="/contact" Component={Contact} />
+          <Route path="/blog" Component={Blog} />
+          <Route path="/events" Component={Events} />
+          <Route path="/jobs" Component={Jobs} />
+          <Route path="/products/ItemDetail/" Component={ItemDetails}/>
         </Routes>
     </div>
     </Router>

@@ -1,9 +1,15 @@
 import React from 'react'
-import { useState } from 'react';
+import { useState,useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronDown, faChevronUp} from '@fortawesome/free-solid-svg-icons';
-// import Filters from './filters';
+import { useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
+import {RootState} from '../redux/store'
+import { AddPrice, RemovePrice,updateFilters } from '../redux/Slices/filterSlice';
+
 const Price: React.FC = () => {
+
+  const dispatch = useDispatch();
   const [isClicked, setIsClicked] = useState<boolean>(true);
   const showPopup = () => {
     if(isClicked===true){
@@ -33,37 +39,117 @@ const Price: React.FC = () => {
 
   const toggleCheckbox = () => {
     setIsChecked(!isChecked);
-    
+    if(isChecked===true)
+    {
+      dispatch(RemovePrice(['Less than 10$']));
+    }
+    else{
+      dispatch(AddPrice(['Less than 10$']));
+      dispatch(updateFilters(true));
+    }
   };
 
   const toggleCheckbox2 = () => { 
     setIsChecked2(!isChecked2);
+    if(isChecked2===true)
+    {
+      dispatch(RemovePrice(['10$ to 20$']));
+    }
+    else{
+      dispatch(AddPrice(['10$ to 20$']));
+      dispatch(updateFilters(true));
+    }
     
   };
   const toggleCheckbox3 = () => { 
     setIsChecked3(!isChecked3);
+    if(isChecked3===true)
+    {
+      dispatch(RemovePrice(['20$ to 30$']));
+    }
+    else{
+      dispatch(AddPrice(['20$ to 30$']));
+      dispatch(updateFilters(true));
+    }
     
   };
   const toggleCheckbox4 = () => { 
     setIsChecked4(!isChecked4);
+    if(isChecked4===true)
+    {
+      dispatch(RemovePrice(['30$ to 50$']));
+    }
+    else{
+      dispatch(AddPrice(['30$ to 50$']));
+      dispatch(updateFilters(true));
+    }
     
   };
   const toggleCheckbox5 = () => { 
     setIsChecked5(!isChecked5);
+    if(isChecked5===true)
+    {
+      dispatch(RemovePrice(['50$ to 100$']));
+    }
+    else{
+      dispatch(AddPrice(['50$ to 100$']));
+      dispatch(updateFilters(true));
+    }
     
   };
   const toggleCheckbox6 = () => { 
     setIsChecked6(!isChecked6);
+    if(isChecked6===true)
+    {
+      dispatch(RemovePrice(['100$ & Above']));
+    }
+    else{
+      dispatch(AddPrice(['100$ & Above']));
+      dispatch(updateFilters(true));
+    }
   };
-
+  const checkRemovePrices: boolean = useSelector((state: RootState) => (state.filters.price.length !== 0));
+  useEffect(() => {
+    if(checkRemovePrices === false ){
+      setIsChecked(false);
+      setIsChecked2(false);
+      setIsChecked3(false);
+      setIsChecked4(false);
+      setIsChecked5(false);
+      setIsChecked6(false);
+    }
+  },[checkRemovePrices])
+  const checkReset: boolean = useSelector((state: RootState) => state.filters.filters);
+    useEffect(() => {
+    if(checkReset === false ){
+      setIsChecked(false);
+      setIsChecked2(false);
+      setIsChecked3(false);
+      setIsChecked4(false);
+      setIsChecked5(false);
+      setIsChecked6(false);
+    }
+  },[checkReset])
 
   return (
     <div id = 'PriceDiv' className='mt-5 bg-white rounded-lg'>
       {isClicked ? <>
-      <p className='cursor-pointer xs:text-xs 2xl:text-base relative'onClick={showPopup}>
-      <button type='button' className="xs:px-1 xs:py-1 xs:mr-14 2xl:px-4 2xl:mr-20 2xl:py-2 font-bold 2xl:text-xl text-blue-800 cursor-pointer hover:underline hover:text-blue-900">Price</button>
-      <FontAwesomeIcon className='2xl:ml-20 xs:ml-3'  icon={faChevronUp} style={{color: "gray",}} />
-      </p>
+        <p
+      className={`cursor-pointer xs:text-xs 2xl:text-base relative`}
+      onClick={showPopup}
+    >
+      <button
+        type="button"
+        className={`2xl:px-4 2xl:mr-18 2xl:py-2 font-bold 2xl:text-xl xs:py-1 xs:mr-0.5 xs:text-xs text-blue-800 cursor-pointer hover:underline hover:text-blue-900`}
+      >
+        Price
+      </button>
+      <FontAwesomeIcon
+        className={`2xl:ml-[200px]`}
+        icon={isClicked ? faChevronUp : faChevronDown}
+        style={{ color: 'gray' }}
+      />
+    </p>
       <div className='2xl:px-4 2xl:py-2 xs:px-1 xs:py-1 xs:mt-2'>
       <div className="m-0">
         
@@ -148,10 +234,22 @@ const Price: React.FC = () => {
     </div>
       </div>
       </> : 
-      <p className='cursor-pointer xs:text-xs 2xl:text-base relative'onClick={showPopup}>
-      <button type='button' className="xs:px-1 xs:py-1 xs:mr-14 2xl:px-4 2xl:mr-20 2xl:py-2 font-bold 2xl:text-xl text-blue-800 cursor-pointer hover:underline hover:text-blue-900">Price</button>
-      <FontAwesomeIcon className='2xl:px-2 2xl:ml-16 xs:ml-3' icon={faChevronDown} style={{color: "gray",}} />
-      </p> }
+      <p
+      className={`cursor-pointer xs:text-xs 2xl:text-base relative`}
+      onClick={showPopup}
+    >
+      <button
+        type="button"
+        className={`2xl:px-4 2xl:mr-18 2xl:py-2 font-bold 2xl:text-xl xs:py-1 xs:mr-0.5 xs:text-xs text-blue-800 cursor-pointer hover:underline hover:text-blue-900`}
+      >
+        Price
+      </button>
+      <FontAwesomeIcon
+        className={`2xl:ml-[200px]`}
+        icon={isClicked ? faChevronUp : faChevronDown}
+        style={{ color: 'gray' }}
+      />
+    </p> }
     </div>
   );
 };
