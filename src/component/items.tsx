@@ -17,9 +17,20 @@ const Items:React.FC = () => {
   const selectedAvailability: string[] = useSelector((state: RootState) => state.filters.availability);
 
   const checkPriceRange = (price: string, range: string): boolean => {
-    const [min, max] = range.split(' to ');
-    const productPrice = parseFloat(price.replace('$', ''));
-    return productPrice >= parseFloat(min) && productPrice <= parseFloat(max);
+    if(range === 'Less than 10$')
+    {
+      const productPrice = parseFloat(price.replace('$', ''));
+      return productPrice >= 0 && productPrice < 10;
+    }
+    else if(range === '100$ & Above'){
+      const productPrice = parseFloat(price.replace('$', ''));
+      return productPrice >= 100;
+    }
+    else{
+      const [min, max] = range.split(' to ');
+      const productPrice = parseFloat(price.replace('$', ''));
+      return productPrice >= parseFloat(min) && productPrice <= parseFloat(max);
+    }
   };
   
   const filteredProducts = Products.filter((product: Product) => {
