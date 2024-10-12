@@ -4,10 +4,10 @@ The **Kencove Web App** is a dynamic and user-friendly application built with **
 
 ## Weblink: [Live Website](https://react-kencove-webapp-using-redux.netlify.app/)
 
-## Available Scripts
+## Getting Started
 
-In the project directory, you can run:
-### `git clone https://github.com/usmanX191/React-Kencove-Ecommerce-Website.git`
+To get a local copy of the project, follow these steps:
+- `git clone https://github.com/usmanX191/React-Kencove-Ecommerce-Website.git`
 ### `cd React-Kencove-Ecommerce-Website-main`
 ### `npm install`
 ### `npm start`
