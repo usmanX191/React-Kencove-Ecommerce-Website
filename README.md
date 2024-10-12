@@ -8,9 +8,9 @@ The **Kencove Web App** is a dynamic and user-friendly application built with **
 
 To get a local copy of the project, follow these steps:
 - `git clone https://github.com/usmanX191/React-Kencove-Ecommerce-Website.git`
-### `cd React-Kencove-Ecommerce-Website-main`
-### `npm install`
-### `npm start`
+- `cd React-Kencove-Ecommerce-Website-main`
+- `npm install`
+- `npm start`
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
